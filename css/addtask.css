@@ -1,0 +1,242 @@
+body {
+    background: #ffffff;
+    color: #333;
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.card {
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    background: #1e3c72;
+    color: #fff;
+    padding: 1.5rem;
+    border-radius: 15px 15px 0 0;
+    border-bottom: none;
+}
+
+.card-header h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.card-body {
+    padding: 2rem;
+    color: #333;
+}
+
+.form-group label {
+    font-weight: 500;
+    color: #1e3c72;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.form-control {
+    border: 2px solid #e1e1e1;
+    border-radius: 10px;
+    padding: 0.75rem 1rem;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+}
+
+.form-control:focus {
+    border-color: #1e3c72;
+    box-shadow: 0 0 0 0.2rem rgba(30, 60, 114, 0.15);
+}
+
+.custom-select {
+    height: calc(1.5em + 1.5rem + 2px);
+    padding: 0.75rem 1rem;
+    border-radius: 10px;
+}
+
+.btn-custom {
+    padding: 0.75rem 1.5rem;
+    font-weight: 500;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.9rem;
+}
+
+.btn-save {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: #fff;
+    border: none;
+}
+
+.btn-save:hover {
+    background: linear-gradient(135deg, #2a5298 0%, #1e3c72 100%);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(30, 60, 114, 0.3);
+}
+
+.btn-back {
+    background: #6c757d;
+    color: #fff;
+    border: none;
+}
+
+.btn-back:hover {
+    background: #5a6268;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(108, 117, 125, 0.3);
+}
+
+/* Status Select Styling */
+.status-option {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.status-icon {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.status-priority { background-color: #dc3545; }
+.status-new { background-color: #28a745; }
+.status-done { background-color: #6c757d; }
+
+/* Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.card {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Add these to your existing style section */
+.status-indicator {
+    padding: 0.5rem 1.5rem;
+    border-radius: 20px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.status-indicator::before {
+    content: '';
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: currentColor;
+}
+
+.status-indicator.status-priority {
+    background: linear-gradient(45deg, #dc3545, #d63384);
+    animation: pulse-priority 2s infinite;
+}
+
+.status-indicator.status-new {
+    background: linear-gradient(45deg, #28a745, #20c997);
+    animation: pulse-new 2s infinite;
+}
+
+.status-indicator.status-done {
+    background: linear-gradient(45deg, #6c757d, #495057);
+}
+
+@keyframes pulse-priority {
+    0% {
+        box-shadow: 0 0 0 0 rgba(220, 53, 69, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(220, 53, 69, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(220, 53, 69, 0);
+    }
+}
+
+@keyframes pulse-new {
+    0% {
+        box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(40, 167, 69, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(40, 167, 69, 0);
+    }
+}
+
+/* Status Select Enhancement */
+.custom-select option {
+    padding: 10px;
+}
+
+.custom-select option[value="priority"] {
+    background-color: rgba(220, 53, 69, 0.1);
+    color: #dc3545;
+}
+
+.custom-select option[value="new"] {
+    background-color: rgba(40, 167, 69, 0.1);
+    color: #28a745;
+}
+
+.custom-select option[value="done"] {
+    background-color: rgba(108, 117, 125, 0.1);
+    color: #6c757d;
+}
+
+/* Status Label */
+.status-label {
+    font-weight: 500;
+    color: #1e3c72;
+    font-size: 0.95rem;
+}
+
+/* Add pending status styles */
+.status-indicator.status-pending {
+    background: linear-gradient(45deg, #ffc107, #ff9800);
+    animation: pulse-pending 2s infinite;
+}
+
+.custom-select option[value="pending"] {
+    background-color: rgba(255, 193, 7, 0.1);
+    color: #ffc107;
+}
+
+@keyframes pulse-pending {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 193, 7, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(255, 193, 7, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 193, 7, 0);
+    }
+}
